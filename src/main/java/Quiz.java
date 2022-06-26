@@ -5,11 +5,13 @@ public class Quiz {
     private ArrayList<Question> questionArrayList;
     private Question currentQuestion;
     private ArrayList<Question> scoreList;
+    private Player player;
 
 
-    public Quiz(ArrayList<Question> questionArrayList, Question currentQuestion) {
+    public Quiz(ArrayList<Question> questionArrayList, Question currentQuestion, Player player) {
         this.questionArrayList = questionArrayList;
         this.currentQuestion = currentQuestion;
+        this.player = player;
         this.scoreList = new ArrayList<>();
     }
 
@@ -46,5 +48,22 @@ public class Quiz {
 
     public void setScoreList(ArrayList<Question> scoreList) {
         this.scoreList = scoreList;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void playQuiz(Question question){
+        if(player.getAnswer() == currentQuestion.getCorrect()){
+            scoreList.add(question);
+            nextQuestion();
+        } else if (player.getAnswer() != currentQuestion.getCorrect()) {
+           nextQuestion();
+        }
     }
 }

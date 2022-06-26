@@ -12,6 +12,7 @@ public class QuizTest {
     Question question2;
     ArrayList<Question> questions;
     ArrayList<Question> scoreList;
+    Player player;
 
 
 
@@ -27,7 +28,9 @@ public class QuizTest {
 
         scoreList = new ArrayList<>();
 
-        quiz = new Quiz(questions,questions.get(0));
+        player = new Player("Bob", "C");
+
+        quiz = new Quiz(questions,questions.get(0), player);
     }
 
 
@@ -59,23 +62,10 @@ public class QuizTest {
     }
 
     @Test
-    public void playQuizCorrectAnswer(){
-        assertEquals(1,quiz.getScoreList());
+    public void playQuiz(){
+        quiz.playQuiz(questions.get(0));
+        assertEquals(1, quiz.getScoreList());
         assertEquals(question2, quiz.getCurrentQuestion());
     }
-
-//       if (game.getCurrentRoom() instanceof  TreasureRoom){
-//        Room room = game.getCurrentRoom();
-//        TreasureRoom treasureRoom = (TreasureRoom) room;
-//        TreasureType somethingShiny = treasureRoom.getTreasure();
-//        blobby.collectTreasure(somethingShiny);
-//        assertEquals(1, game.getPlayer().getCollectionOfTreasuresCOUNT() );
-//    }
-
-    @Test
-    public void playQuizIncorrectCorrectAnswer(){
-
-    }
-
 
 }
