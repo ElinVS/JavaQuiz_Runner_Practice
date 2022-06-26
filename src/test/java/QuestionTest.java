@@ -65,5 +65,4 @@ public class QuestionTest {
         assertEquals("C", question1.getCorrect());
     }
 
-
 }

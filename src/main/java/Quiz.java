@@ -4,11 +4,13 @@ public class Quiz {
 
     private ArrayList<Question> questionArrayList;
     private Question currentQuestion;
+    private ArrayList<Question> scoreList;
 
 
     public Quiz(ArrayList<Question> questionArrayList, Question currentQuestion) {
         this.questionArrayList = questionArrayList;
         this.currentQuestion = currentQuestion;
+        this.scoreList = new ArrayList<>();
     }
 
     public Question getCurrentQuestion() {
@@ -34,8 +36,15 @@ public class Quiz {
     public void nextQuestion() {
         int index = questionArrayList.indexOf(getCurrentQuestion());
         int next = index + 1;
-        Question nextRoom = roomArrayList.get(next);
-        setCurrentRoom(nextRoom);
+        Question nextQuestion = questionArrayList.get(next);
+        setCurrentQuestion(nextQuestion);
     }
+
+    public int getScoreList() {
+        return scoreList.size();
+    }
+
+    public void setScoreList(ArrayList<Question> scoreList) {
+        this.scoreList = scoreList;
     }
 }
