@@ -26,8 +26,9 @@ public class Quiz {
         return currentQuestion;
     }
 
-    public void setCurrentQuestion(Question currentQuestion) {
+    public String setCurrentQuestion(Question currentQuestion) {
         this.currentQuestion = currentQuestion;
+        return "";
     }
 
     public int getQuestionArrayListCount() {
@@ -42,11 +43,11 @@ public class Quiz {
         questionArrayList.add(question);
     }
 
-    public void nextQuestion() {
+    public String nextQuestion() {
         int index = questionArrayList.indexOf(getCurrentQuestion());
         int next = index + 1;
         Question nextQuestion = questionArrayList.get(next);
-        setCurrentQuestion(nextQuestion);
+        return "" + setCurrentQuestion(nextQuestion);
     }
 
     public int getScoreList() {
