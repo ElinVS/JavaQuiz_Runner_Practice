@@ -57,6 +57,12 @@ public class Quiz {
         this.scoreList = scoreList;
     }
 
+    public void addPointToScoreList(Question question){
+        if(player.getAnswer() == currentQuestion.getCorrect()){
+            scoreList.add(question);
+        }
+    }
+
     public Player getPlayer() {
         return player;
     }

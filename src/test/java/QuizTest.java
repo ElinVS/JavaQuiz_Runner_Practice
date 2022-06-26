@@ -62,6 +62,14 @@ public class QuizTest {
     }
 
     @Test
+    public void playerCanScorePoints(){
+        player.getAnswer();
+        quiz.addPointToScoreList(questions.get(0));
+        assertEquals("C", player.getAnswer());
+        assertEquals(1, quiz.getScoreList());
+    }
+
+    @Test
     public void playQuiz(){
         quiz.playQuiz(questions.get(0));
         assertEquals(1, quiz.getScoreList());

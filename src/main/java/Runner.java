@@ -33,16 +33,30 @@ public class Runner {
 
         ////
 
-        System.out.println("Hello player! This is a quiz about " + quiz.getSubject() + ". You will get a question with 3 options. Simply select the option you think is correct, A,B or C. Lets see how good you are at " + quiz.getSubject() + "! Are you ready for the first question? Yes or No?");
+        System.out.println("Hello player. What is your name? ");
+        String name = in.nextLine();
+        player.setName(name);
+
+        System.out.println("Hello " + player.getName() + "! This is a quiz about " + quiz.getSubject() + ". You will get a question with 3 options. Simply select the option you think is correct, A,B or C. Lets see how good you are at " + quiz.getSubject() + "! Are you ready for the first question? Yes or No?");
         String answer = in.nextLine();
         if (Objects.equals(answer.toLowerCase(), "yes")) {
             System.out.println("Great!" + quiz.getCurrentQuestion().getQuestion() + quiz.getCurrentQuestion().getA() + quiz.getCurrentQuestion().getB() + quiz.getCurrentQuestion().getC());
             String choice = in.nextLine();
-            if (Objects.equals(choice.toLowerCase(), quiz.playQuiz(questions.get(0))){
-                System.out.println();
+            if (choice == quiz.getCurrentQuestion().getCorrect()){
+                in.nextLine();
+                System.out.println("Interesting choice! Lets move on to your next question " + quiz.getCurrentQuestion().getQuestion() + quiz.getCurrentQuestion().getA() + quiz.getCurrentQuestion().getB() + quiz.getCurrentQuestion().getC() );
             }
+
 
         }
     }
 
 }
+
+//
+//     if(player.getAnswer() == currentQuestion.getCorrect()){
+//             scoreList.add(question);
+//             nextQuestion();
+//             } else if (player.getAnswer() != currentQuestion.getCorrect()) {
+//             nextQuestion();
+//             }
