@@ -2,17 +2,24 @@ import java.util.ArrayList;
 
 public class Quiz {
 
+
+    private String subject;
     private ArrayList<Question> questionArrayList;
     private Question currentQuestion;
     private ArrayList<Question> scoreList;
     private Player player;
 
 
-    public Quiz(ArrayList<Question> questionArrayList, Question currentQuestion, Player player) {
+    public Quiz(String subject, ArrayList<Question> questionArrayList, Question currentQuestion, Player player) {
+        this.subject = subject;
         this.questionArrayList = questionArrayList;
         this.currentQuestion = currentQuestion;
         this.player = player;
         this.scoreList = new ArrayList<>();
+    }
+
+    public String getSubject() {
+        return subject;
     }
 
     public Question getCurrentQuestion() {

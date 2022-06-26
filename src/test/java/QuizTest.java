@@ -30,7 +30,7 @@ public class QuizTest {
 
         player = new Player("Bob", "C");
 
-        quiz = new Quiz(questions,questions.get(0), player);
+        quiz = new Quiz("Java", questions,questions.get(0), player);
     }
 
 
