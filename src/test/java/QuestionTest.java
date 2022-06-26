@@ -36,33 +36,33 @@ public class QuestionTest {
 
     @Test
     public void hasAQuestion(){
-        assertEquals();
+        assertEquals("What is a correct syntax to output \"Hello World\" in Java?", question1.getQuestion());
 
     }
 
-    @Test
-    public void hasAnAnswer(){
-
-    }
 
     @Test
     public void hasOptionA(){
+        assertEquals("A. Echo(\"Hello World\")", question1.getA());
+
 
     }
 
     @Test
     public void hasOptionB(){
+        assertEquals("B. print(\"Hello World\") ", question1.getB());
 
     }
 
     @Test
     public void hasOptionC(){
+        assertEquals("C. System.out println(\"Hello World\") ", question1.getC());
 
     }
 
     @Test
     public void hasCorrectAnswer(){
-
+        assertEquals("C", question1.getCorrect());
     }
 
 
