@@ -14,16 +14,19 @@ public class Runner {
         Quiz quiz;
         Question question1;
         Question question2;
+        Question question3;
         ArrayList<Question> questions;
         ArrayList<Question> scoreList;
         Player player;
 
         questions = new ArrayList<>();
 
-        question1 = new Question("What is a correct syntax to output \"Hello World\" in Java? : ", "A. Echo(\"Hello World\")", "B. print(\"Hello World\") ", "C. System.out println(\"Hello World\") ", "C");
-        question2 = new Question("How do you insert COMMENTS in Java code? : ", " A. #This is a comment", "B. //This is a comment", "C. /*This is a comment", "B");
+        question1 = new Question("QUESTION 1 : What is a correct syntax to output \"Hello World\" in Java? : ", "A. Echo(\"Hello World\")", " B. print(\"Hello World\") ", " C. System.out println(\"Hello World\") ", "C");
+        question2 = new Question("QUESTION 2: How do you insert COMMENTS in Java code? : ", " A. #This is a comment ", " B. //This is a comment ", " C. /*This is a comment ", "B");
+        question3 = new Question("QUESTION 3: Which operator is used to multiply numbers? ", "A. * ", "B. x ", "C. ** ", "A");
         questions.add(question1);
         questions.add(question2);
+        questions.add(question3);
 
         scoreList = new ArrayList<>();
 
@@ -42,10 +45,16 @@ public class Runner {
         if (Objects.equals(answer.toLowerCase(), "yes")) {
             System.out.println("Great!" + quiz.getCurrentQuestion().getQuestion() + quiz.getCurrentQuestion().getA() + quiz.getCurrentQuestion().getB() + quiz.getCurrentQuestion().getC());
             String choice = in.nextLine();
-            if (choice.toUpperCase().equals(quiz.getCurrentQuestion().getCorrect())){
+        for (Question question : questions) {
+            if (choice.toUpperCase().equals(quiz.getCurrentQuestion().getCorrect())) {
                 scoreList.add(question1);
 //                in.nextLine();
-                System.out.println("Interesting choice! Lets move on to your next question " + quiz.nextQuestion() + quiz.getCurrentQuestion().getQuestion() + quiz.getCurrentQuestion().getA() + quiz.getCurrentQuestion().getB() + quiz.getCurrentQuestion().getC() );
+                System.out.println("Interesting choice! Lets move on to your next question " + quiz.nextQuestion() + quiz.getCurrentQuestion().getQuestion() + quiz.getCurrentQuestion().getA() + quiz.getCurrentQuestion().getB() + quiz.getCurrentQuestion().getC());
+                in.nextLine();
+            } else if (choice.toUpperCase() != quiz.getCurrentQuestion().getCorrect()) {
+                System.out.println("Interesting choice! Lets move on to your next question " + quiz.nextQuestion() + quiz.getCurrentQuestion().getQuestion() + quiz.getCurrentQuestion().getA() + quiz.getCurrentQuestion().getB() + quiz.getCurrentQuestion().getC());
+                in.nextLine();
+            }
             }
         }
     }
